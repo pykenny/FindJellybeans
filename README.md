@@ -1,7 +1,7 @@
 # FindJellybeans
 This project aims to demonstrate a brief example of how to extact target files as what's done in my previous collaborative course [project](https://github.com/tnmcneil/XGenomesProject).
 
-- **Note**: It's still ongoing due to failure in previous early attempts, and I'll keep it updated, until reach some favorable result.
+- **Note**: It's still an ongoing project, and I'll keep it updated until reach some satisfactory result.
 
 In the original work, we need to locate and annotate DNA strands on real images for further work (identify whether the extracted block contains specific DAN series). However the huge amount of target in the dataset makes it impossible to be manually done in just a few weeks. Fortunately we were able to apprximate and generate synthesized images, then train an object identification model on these images, so that we pick out and label thoses strands automatically. As the result, we saved much time on data preprocessing and brought an acceptable solution for the annotation problem.
 
@@ -23,7 +23,7 @@ For real case prediction, please use the `convert_model.py` script provided in `
 
 ## Expected Result
 ![](/img/oneclass_predict_75_test_1.jpeg)
-By following these instructions, you'll finally have a one-class identification model that's capable of pointing out where the jelly beans are. Though not hundred percent perfect (you may consider tuning threshold parameter in `/src/predict.py` to get a better filtered result), and
+By following these instructions, you'll finally have a one-class identification model that's capable of pointing out where the jelly beans are. Though not perfect (you may consider tuning threshold parameter in `/src/predict.py` to get a better filtered result), and can fail in some real cases, we've already have a good start!
 
 As for multiple-class identifier -- identify both location of jelly beans along with their flavor, unfortunately it turns out with the same result as when I was working on DNA strands -- several tries on different training settings are all getting poor result, and even can't point out location of the beans well. Apparaently there's still much improvement can be done for synthesizing, or perhaps sending the extracted blocks to another classifier for specific classes is usually a better idea for this task.
 
