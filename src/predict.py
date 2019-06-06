@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-    Modified from this example:
+    Modified from official example:
     https://github.com/fizyr/keras-retinanet/blob/master/examples/ResNet50RetinaNet.ipynb
 """
 
@@ -29,6 +29,8 @@ def parse_args():
                         dest="backbone", help="Type of backbone model.")
     parser.add_argument("--outprefix", required=False, type=str, default="result", \
                         dest="out_prefix", help="Prefix for output files.")
+    parser.add_argument("--threshold", required=False, type=float, default=0.5, \
+                        dest="threshold", help="Identify threshold. Default 0.5.")
     return parser.parse_args()
 
 def test_args(args):
@@ -77,7 +79,7 @@ def run():
 
         boxes /= scale
         for box, score, label in zip(boxes[0], scores[0], labels[0]):
-            if score < 0.45: # Labels are sorted
+            if score < args.threshold: # Labels are sorted
                  break
             color = label_color(label)
             b = box.astype(int)
