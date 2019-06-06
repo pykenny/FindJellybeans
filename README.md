@@ -22,7 +22,7 @@ Once you have a set of synthesized images, annotation data, and mapping between 
 For real case prediction, please use the `convert_model.py` script provided in `keras-retinanet`'s repository first to obtain the prdiction model, then use the it with `/src/predict.py`.
 
 ## Expected Result
-![](/src/oneclass_predict_75_test_1.jpeg)
+![](/img/oneclass_predict_75_test_1.jpeg)
 By following these instructions, you'll finally have a one-class identification model that's capable of pointing out where the jelly beans are. Though not hundred percent perfect (you may consider tuning threshold parameter in `/src/predict.py` to get a better filtered result), and
 
 As for multiple-class identifier -- identify both location of jelly beans along with their flavor, unfortunately it turns out with the same result as when I was working on DNA strands -- several tries on different training settings are all getting poor result, and even can't point out location of the beans well. Apparaently there's still much improvement can be done for synthesizing, or perhaps sending the extracted blocks to another classifier for specific classes is usually a better idea for this task.
